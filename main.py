@@ -50,11 +50,11 @@ def main():
         # 每次轮询需要重新获取select elements，否则会报错
         options = driver.find_elements_by_xpath("//select[@class='bottombar__chapter']/option")
         options[i].click()
+        time.sleep(2)
         print(options[i].text)
         dirname = BASE_FOLDER + '/' + options[i].text
         os.makedirs(dirname, exist_ok=True)
         get_images(driver, dirname)
-        time.sleep(2)
 
 
 if __name__ == '__main__':
